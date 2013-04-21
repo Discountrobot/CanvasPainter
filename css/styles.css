@@ -1,0 +1,10 @@
+[data-tool] {
+    background-color: brown;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+canvas {
+    border: 1px solid #000;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>    
+<head>
+  <!-- So Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="A wonderful website."/>
+  <!-- SE Image -->
+  <link rel="image_src" href="" />
+  <!-- Stylesheets -->
+  <link href="css/resets.css" media="all" rel="stylesheet"/>
+  <link href="css/styles.css" media="all" rel="stylesheet"/>
+  <!-- JavaScripts -->
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <!-- backbone scripts -->
+  <script src="js/Models/MarkerModel.js"></script>
+  <script src="js/Models/EraserModel.js"></script>
+  <script src="js/Models/AnimationModel.js"></script>
+  <script src="js/Models/TextModel.js"></script>
+  <script src="js/Collections/Tools.js"></script>
+  <script src="js/Models/PainterModel.js"></script>
+  <script src="js/Views/PainterView.js"></script>
+  <script src="js/app.js"></script>
+  <!-- Title -->
+  <title>Website</title>
+</head>
+<!--[if lt IE 9]>
+<script src="js///html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<body>
+  <div id="pencils">
+    <span data-tool="marker" data-color="#178748" ></span>
+    <span data-tool="marker" data-color="#c91c14" ></span>
+    <span data-tool="marker" data-color="#2e82d6" ></span>
+    <span data-tool="marker" data-color="#015839" ></span>
+    <span data-tool="marker" data-color="#8359A3" ></span>
+    <span data-tool="marker" data-color="#f6d836" ></span>
+    <span data-tool="marker" data-color="#000" ></span>
+    <span data-tool="marker" data-color="#774F38" ></span>
+    <span data-tool="marker" data-color="#ff6a30" ></span>
+    <span data-tool="marker" data-color="#a0a099" ></span>
+
+    <span data-tool="eraser"></span>
+    <span id="pencil" data-tool="marker" data-color="#464646" data-size="1"></span>
+    <span id="ballpoint" data-tool="marker" data-color="#22367D" data-size="1"></span>
+  </div>
+  
+  <div id="document" class="clear">
+    </div>
+    <div id="canvasContainer" class="clear">
+      <canvas id="canvas" width="700" height="500px"></canvas>
+      <a href="#" id="download">lol</a>
+    </div>
+</body>
