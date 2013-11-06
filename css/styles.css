@@ -1,0 +1,157 @@
+body {
+  background: url('../imgs/bg.png');
+}
+
+#document {
+  position: relative;
+  margin: 5% auto;
+  width: 980px;
+}
+
+#canvasContainer {
+  width: 830px;
+  height: 600px;
+  background: url('../imgs/canvas.png') no-repeat;
+}
+
+#canvas {
+  margin: 50px 0px 20px 80px;
+  width: 700px;
+  height: 500px;
+}
+
+*[data-tool] {
+  cursor: pointer;
+  text-decoration: none;
+
+  position: absolute;
+  
+  display: block;
+  padding: 0;
+
+  -webkit-tap-highlight-color:rgba(0,0,0,0);  
+}
+
+#eraser {
+  width: 160px;
+  height: 70px;
+
+  top: 0px;
+  left: -100px;
+
+  background: url('../imgs/eraser.png') no-repeat;
+}
+
+#text {
+  top: 200px;
+  left: -200px;
+  width: 260px;
+  height: 100px;
+
+  background: url('../imgs/text.png') no-repeat;
+}
+
+#pencil {
+  width: 400px;
+  height: 50px;
+
+  top: 70px;
+  left: -360px;
+
+  background: url('../imgs/pencil.png') no-repeat;
+}
+
+#ballpoint {
+  width: 420px;
+  height: 45px;
+  left: -360px;
+  top: 120px;
+
+  background: url('../imgs/ballpoint.png') no-repeat;
+}
+
+#download {
+  width: 140px;
+  height: 93px;
+
+  position: absolute;
+
+  left: 700px;
+  bottom: -20px;
+
+  display: block;
+  background: url('../imgs/send.png') no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+#flush {
+  width: 120px;
+  height: 133px;
+  left: 0px;
+  bottom: -40px;
+  background: url('../imgs/flush.png'); 
+
+}
+
+#pencils {
+  right: 0;
+  top: 0px;
+  position: absolute;
+}
+
+#pencils [data-tool] {
+  width: 180px;
+  height: 35px;
+  position: relative;
+}
+
+#pencils *[data-tool].active {
+  margin-left: -10px;
+  width: 190px;
+}
+
+#pencils [data-color="#178748"] {
+  background: url('../imgs/pencil_green.png');
+}
+#pencils [data-color="#c91c14"] {
+  background: url('../imgs/pencil_red.png');
+}
+#pencils [data-color="#2e82d6"] {
+  background: url('../imgs/pencil_blue.png');
+}
+#pencils [data-color="#015839"] {
+  background: url('../imgs/pencil_darkgreen.png');
+}
+#pencils [data-color="#8359A3"] {
+  background: url('../imgs/pencil_purple.png');
+}
+#pencils [data-color="#f6d836"] {
+  background: url('../imgs/pencil_yellow.png');
+}
+#pencils [data-color="#000"] {
+  background: url('../imgs/pencil_black.png');
+}
+#pencils [data-color="#774F38"] {
+  background: url('../imgs/pencil_brown.png');
+}
+#pencils [data-color="#ff6a30"] {
+  background: url('../imgs/pencil_orange.png');
+}
+#pencils [data-color="#a0a099"] {
+  background: url('../imgs/pencil_gray.png');
+}
+
+#txtContainer {
+  font-size: 22px;
+  font-family: verdana;
+  position: absolute;
+  border: none;
+  outline: none;
+  padding: 3px;
+  background: rgba(0,0,0,0);
+}
+
+#txtContainer:focus {
+  outline: none;
+}
