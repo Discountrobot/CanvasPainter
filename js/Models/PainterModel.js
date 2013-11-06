@@ -1,7 +1,4 @@
 var App = App || {};
-    App.Views = App.Views || {};
-    App.Collections = App.Collections || {};
-    App.Models = App.Models || {};
 
 $(function(){
 
@@ -38,9 +35,9 @@ $(function(){
       });
     },
 
-    onToolSelect: function( type, options ) {
+    onToolSelect: function( options ) {
       
-      switch(type) {
+      switch(options.tool) {
         case 'marker':
           this.set('tool', new App.Models.MarkerTool());
           break;
@@ -67,6 +64,7 @@ $(function(){
       var curOptions = this.get('tool').get('options');
       this.get('tool').set('options', $.extend(curOptions, options));
 
+      // add the tool the the redrawing queue
       this.get('queue').add(this.get('tool'));
     },
 
@@ -74,14 +72,19 @@ $(function(){
       
       var queue = this.get('queue');
 
-      _.each(queue.models, function( tool ) {
+      queue.each(function( tool ) {
         tool.draw( context );
       });
     },
 
     flush: function() {
-      
-      this.get('queue').reset();
+      var queue = this.get('queue'),
+          tool = this.get('tool');
+          // reset the drawing queue
+          queue.reset();
+          // clear the strokes from the current tool
+          tool.flush();
+
       this.trigger('redraw');
     },
 

@@ -1,7 +1,4 @@
 var App = App || {};
-    App.Views = App.Views || {};
-    App.Collections = App.Collections || {};
-    App.Models = App.Models || {};
     
 $(function() {
 
@@ -9,44 +6,57 @@ $(function() {
 
     initialize: function() {
       
-      this.set('animation', introAnimation);
-
       this.set('active', false);
       this.set('events', []);
       this.set('event', []);
       this.set('options', {
         color: '#F09',
-        size: 7,
-        speed: 6,
+        size: 7
       });
+      this.set('speed', 22);
 
-      this.animate();
     },
 
     onEvent: function( e ) {
       // this.trigger('redraw');
     },
 
-    animate: function() {
+    animate: function( t ) {
+
+      var animation = this.getToolEvents(t);
+
+      if(animation.length === 0) return;
 
       var reference = this;
 
       this.trigger('redraw')
 
-      var animation = this.get('animation');
       var animationIndex = 0;
+      var eventsIndex = 0;
       var eventIndex = 0;
       
       var animationInterval = setInterval(function() {
 
-        if(animationIndex + 1 >= animation.length) {
-          window.clearInterval(animationInterval);
-          return;
+        console.log({
+          animationIndex: animationIndex,
+          eventsIndex: eventsIndex,
+          eventIndex: eventIndex
+        })
+
+        if(eventIndex > animation[animationIndex][eventsIndex].length - 1) {
+          eventIndex = 0;
+          eventsIndex ++;
         }
 
-        if(eventIndex + 1 > animation[animationIndex].length) {
+        if(eventsIndex > animation[animationIndex].length - 1) {
+          eventsIndex = 0;
           animationIndex ++;
-          eventIndex = 0;
+        }
+
+        if(animationIndex > animation.length - 1) {
+          window.clearInterval(animationInterval);
+          console.log('end')
+          return;
         }
 
         if(eventIndex == 0) {
@@ -54,25 +64,27 @@ $(function() {
           reference.get('events').push(reference.get('event'));
         }
 
-        reference.get('event').push(animation[animationIndex][eventIndex]);
+
+        reference.get('event').push(animation[animationIndex][eventsIndex][eventIndex]);
 
         eventIndex ++;
 
+        reference.set('options', t[animationIndex].get('options'))
+
         reference.trigger('redraw');
 
-      }, this.get('options').speed);
+      }, this.get('speed'));
 
     },   
 
-    getEventCoors: function(events) {
+    getToolEvents: function(tools) {
       var newEvents = [];
-      _.each(events, function(event) {
-        var newEvent = [];
-        _.each(event, function(evt) {
-          newEvent.push({ pageX: evt.pageX, pageY: evt.pageY });
-        });
-        newEvents.push(newEvent);
+      _.each(tools, function(tool) {
+        var events = tool.get('events');
+        if (events.length > 0) newEvents.push(events);
       });
+
+      return newEvents;
     }
 
   });

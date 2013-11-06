@@ -1,7 +1,4 @@
 var App = App || {};
-    App.Views = App.Views || {};
-    App.Collections = App.Collections || {};
-    App.Models = App.Models || {};
 
 $(function () {
 
@@ -78,16 +75,13 @@ $(function () {
     changeTool: function( e ) {
 
       var $target = $(e.target),
-          type = $target.data('tool'),
+          data = $target.data(),
           options = {};
-
-      options.color = $target.data('color');
-      options.size = $target.data('size');
 
       $(this.tools).removeClass('active');
       $target.addClass('active');
 
-      this.model.onToolSelect(type, options);
+      this.model.onToolSelect(data);
     },
 
     download: function( e ) {
@@ -112,9 +106,10 @@ $(function () {
       this.context.clearRect (0,0,w,h);
       this.context.putImageData(data, 0,0);
       this.context.globalCompositeOperation = compositeOperation;
-     
-      window.open(imageData, '_blank');
 
+      // open the image data in a new window     
+      var win = window.open(imageData, '_blank');
+      win.focus();
       return false;
     }
 

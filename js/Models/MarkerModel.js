@@ -1,7 +1,4 @@
 var App = App || {};
-    App.Views = App.Views || {};
-    App.Collections = App.Collections || {};
-    App.Models = App.Models || {};
     
 $(function(){
 
@@ -41,6 +38,7 @@ $(function(){
         case 'touchmove':
           if(this.get('active')) {
             this.get('event').push(e)
+            this.trigger('redraw');
           }
           break;
         case 'mouseup':
@@ -51,7 +49,6 @@ $(function(){
           this.set('active', false);
           break;
       }
-      this.trigger('redraw');
     },
 
     draw: function( context ) {
@@ -85,6 +82,11 @@ $(function(){
 
     undo: function( e ) {
       this.get('events').pop();
+      this.trigger('redraw');
+    },
+
+    flush: function() {
+      this.set('events', []);
       this.trigger('redraw');
     }
   

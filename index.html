@@ -11,10 +11,9 @@
   <link href="css/resets.css" media="all" rel="stylesheet"/>
   <link href="css/styles.css" media="all" rel="stylesheet"/>
   <!-- JavaScripts -->
-  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="js/jquery.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
   <!-- backbone scripts -->
   <script src="js/Models/MarkerModel.js"></script>
   <script src="js/Models/EraserModel.js"></script>
@@ -31,27 +30,28 @@
 <script src="js///html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <body>
-  <div id="pencils">
-    <span data-tool="marker" data-color="#178748" ></span>
-    <span data-tool="marker" data-color="#c91c14" ></span>
-    <span data-tool="marker" data-color="#2e82d6" ></span>
-    <span data-tool="marker" data-color="#015839" ></span>
-    <span data-tool="marker" data-color="#8359A3" ></span>
-    <span data-tool="marker" data-color="#f6d836" ></span>
-    <span data-tool="marker" data-color="#000" ></span>
-    <span data-tool="marker" data-color="#774F38" ></span>
-    <span data-tool="marker" data-color="#ff6a30" ></span>
-    <span data-tool="marker" data-color="#a0a099" ></span>
-
-    <span data-tool="eraser"></span>
-    <span id="pencil" data-tool="marker" data-color="#464646" data-size="1"></span>
-    <span id="ballpoint" data-tool="marker" data-color="#22367D" data-size="1"></span>
-  </div>
-  
   <div id="document" class="clear">
-    </div>
+
     <div id="canvasContainer" class="clear">
       <canvas id="canvas" width="700" height="500px"></canvas>
-      <a href="#" id="download">lol</a>
     </div>
+    <div id="pencils">
+      <span data-tool="marker" data-color="#178748" ></span>
+      <span data-tool="marker" data-color="#c91c14" ></span>
+      <span data-tool="marker" data-color="#2e82d6" ></span>
+      <span data-tool="marker" data-color="#015839" ></span>
+      <span data-tool="marker" data-color="#8359A3" ></span>
+      <span data-tool="marker" data-color="#f6d836" ></span>
+      <span data-tool="marker" data-color="#000" ></span>
+      <span data-tool="marker" data-color="#774F38" ></span>
+      <span data-tool="marker" data-color="#ff6a30" ></span>
+      <span data-tool="animate" data-color="#a0a099" ></span>
+    </div>
+    <span id="eraser" data-tool="eraser"></span>
+    <span id="pencil" data-tool="marker" data-color="#464646" data-size="1"></span>
+    <span id="ballpoint" data-tool="marker" data-color="#22367D" data-size="1"></span>
+    <span id="text" data-tool="text"></span>
+    <span id="flush" data-tool="flush"></span>
+    <span id="download"></span>
+  </div>
 </body>
