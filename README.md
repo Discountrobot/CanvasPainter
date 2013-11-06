@@ -1,2 +1,4 @@
 # CanvasPainter
-A canvas drawing app in backbone, inspired by sketch.js.
+A modular canvas drawing app based on `backbone.js`, inspired by `sketch.js`.
+
+[Live example](http://discountrobot.github.io/CanvasPainter/)
